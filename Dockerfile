@@ -8,4 +8,4 @@ RUN composer install
 RUN php artisan key:generate
 RUN cp .env.example .env
 
-CMD php artisan --host=0.0.0.0 serve
+# CMD php artisan --host=0.0.0.0 serve
