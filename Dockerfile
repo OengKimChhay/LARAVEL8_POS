@@ -5,7 +5,7 @@ WORKDIR /var/www
 COPY .  /var/www    
 
 RUN composer install
-RUN php artisan key:generate
 RUN cp .env.example .env
 
+RUN php artisan key:generate
 CMD php artisan --host=0.0.0.0 serve
