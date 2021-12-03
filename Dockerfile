@@ -2,7 +2,7 @@ FROM lorisleiva/laravel-docker:8.0
 EXPOSE 8000
 
 WORKDIR /var/www
-COPY .  /var/www
+COPY .  /var/www    
 
 RUN composer install
 RUN php artisan key:generate
