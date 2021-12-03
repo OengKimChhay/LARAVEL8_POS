@@ -16,13 +16,6 @@ class OrderController extends Controller
         // $order =  $req->user()->currentAccessToken();   
         $auth = auth()->user();
         $order = Order::select('*')->with(['cashier','details']);
-
-        // ==========================>> Date Range
-        if($req->from != "" && $req->to != ""){
-            $from = Carbon::createFromFormat('dd/mm/yyyy', $req->from);
-            $to = Carbon::createFromFormat('dd/mm/yyyy', $req->to);
-            $order = $order->whereBetween('created_at', [$from, $to]);
-        }
         
         // =========================== Search receipt number
         if( $req->receipt_number && $req->receipt_number !="" ){
